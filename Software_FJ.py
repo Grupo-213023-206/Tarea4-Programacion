@@ -30,28 +30,31 @@ class Logger:
     """Gestiona el registro de eventos y errores en un archivo de logs."""
 
     LOG_FILE = "softwarefj_logs.txt"
-    _widget = None  # referencia al Text widget de la GUI
+    _widget_cb = None   # callback(nivel, linea)
+    logs = []           # historial para el dashboard
 
-    @staticmethod
-    def _escribir(nivel: str, mensaje: str):
-        ts = datetime.now().strftime("%H:%M:%S")
-        linea = f"[{ts}] [{nivel}] {mensaje}\n"
+
+    @classmethod
+    def _escribir(cls, nivel: str, mensaje: str):
+        ts    = datetime.now().strftime("%H:%M:%S")
+        linea = f"[{ts}] [{nivel}] {mensaje}"
+        cls.logs.append((nivel, mensaje))
         try:
-            with open(Logger.LOG_FILE, "a", encoding="utf-8") as f:
+            with open(cls.LOG_FILE, "a", encoding="utf-8") as f:
                 f.write(linea + "\n")
         except IOError:
             pass
-        if Logger._widget:
-            Logger._widget(nivel, linea)
+        if cls._widget_cb:
+            cls._widget_cb(nivel, linea)
 
-    @staticmethod
-    def info(m): Logger._escribir("INFO", m)
-    @staticmethod
-    def error(m): Logger._escribir("ERROR", m)
-    @staticmethod
-    def advertencia(m): Logger._escribir("ADVERTENCIA", m)
-    @staticmethod
-    def evento(m): Logger._escribir("EVENTO", m)
+    @classmethod
+    def info(cls, m):        cls._escribir("INFO", m)
+    @classmethod
+    def error(cls, m):       cls._escribir("ERROR", m)
+    @classmethod
+    def advertencia(cls, m): cls._escribir("ADVERTENCIA", m)
+    @classmethod
+    def evento(cls, m):      cls._escribir("EVENTO", m)
 
 
 # ============================================================
@@ -64,19 +67,20 @@ class Entidad(ABC):
     def __init__(self, id_entidad: int):
         if not isinstance(id_entidad, int) or id_entidad <= 0:
             raise ParametroFaltanteError(f"ID inválido: {id_entidad}")
-        self.__id = id_entidad
+        self._id = id_entidad
 
     @property
-    def id_entidad(self): return self.__id
+    def id_entidad(self): return self._id
 
     @abstractmethod
-    def describir(self) -> str: pass
-
+    def describir(self) -> str: 
+        pass
     @abstractmethod
-    def validar(self) -> bool: pass
-
-    def __str__(self): return self.describir()
-
+    def validar(self) -> bool: 
+        pass
+    def __str__(self): 
+        return self.describir()
+    
 
 # ============================================================
 # CLASE CLIENTE
@@ -100,27 +104,28 @@ class Cliente(Entidad):
     def nombre(self, v):
         if not v or len(v.strip()) < 2:
             raise ClienteInvalidoError(f"Nombre inválido: '{v}'")
-        self.__nombre = v.strip().title()
+        self.__nombre = str(v).strip().title()
 
     @property
     def email(self): return self.__email
     @email.setter
     def email(self, v):
-        if not v or "@" not in v or "." not in v.split("@")[-1]:
+        v = str(v).strip()
+        if "@" not in v or "." not in v.split("@")[-1]:
             raise ClienteInvalidoError(f"Email inválido: '{v}'")
-        self.__email = v.strip().lower()
+        self.__email = v.lower()
 
     @property
     def telefono(self): return self.__telefono
     @telefono.setter
     def telefono(self, v):
-        d = v.replace("+","").replace("-","").replace(" ","")
+        d = str(v).replace("+","").replace("-","").replace(" ","")
         if not d.isdigit() or len(d) < 7:
             raise ClienteInvalidoError(f"Teléfono inválido: '{v}'")
-        self.__telefono = v.strip()
+        self.__telefono = str(v).strip()
 
     def describir(self):
-        return f"[{self.id_entidad}] {self.__nombre} | {self.__email} | {self.__telefono}"
+        return f"[{self._id}] {self.__nombre} | {self.__email} | {self.__telefono}"
     def validar(self): return bool(self.__nombre and self.__email and self.__telefono)
 
 # ============================================================
@@ -136,7 +141,7 @@ class Servicio(Entidad, ABC):
             raise ParametroFaltanteError("Nombre de servicio demasiado corto.")
         if precio_base < 0:
             raise CalculoInconsistenteError("Precio base negativo.")
-        self.__nombre = nombre.strip()
+        self.__nombre = str(nombre).strip()
         self.__precio_base = precio_base
         self.__disponible = disponible
 
@@ -152,7 +157,7 @@ class Servicio(Entidad, ABC):
     def validar(self) -> bool: return self.__disponible and self.__precio_base >= 0
 
     @abstractmethod
-    def calcular_costo(self, duracion_horas: float, **kwargs) -> float: pass
+    def calcular_costo(self, horas: float, **kw) -> float: pass
     @abstractmethod
     def describir_servicio(self) -> str: pass
     @abstractmethod
@@ -160,12 +165,11 @@ class Servicio(Entidad, ABC):
 
     def describir(self):
         est = "Disponible" if self.__disponible else "No disponible"
-        return f"[{self.id_entidad}] {self.__nombre} | ${self.__precio_base}/h | {est}"
+        return f"[{self._id}] {self.__nombre} | ${self.__precio_base}/h | {est}"
 
     def verificar_disponibilidad(self):
         if not self.__disponible:
-            raise ServicioNoDisponibleError(
-                f"Servicio '{self.__nombre}' no está disponible.")
+            raise ServicioNoDisponibleError(f"Servicio '{self.__nombre}' no está disponible.")
 
 # --- Servicio 1: Reserva de Sala ---
 
@@ -180,11 +184,10 @@ class ServicioReservaSala(Servicio):
     def tipo(self): return "Sala"
     def describir_servicio(self): return f"Sala p/{self.__capacidad} personas"
 
-    def calcular_costo(self, duracion_horas, descuento=0.0, **kw):
-        if duracion_horas <= 0: raise CalculoInconsistenteError("Duración inválida.")
+    def calcular_costo(self, horas, descuento=0.0, **kw):
+        if horas <= 0: raise CalculoInconsistenteError("Duración inválida.")
         if not (0 <= descuento <= 1): raise CalculoInconsistenteError("Descuento inválido (0–1).")
-        return round(self.precio_base * duracion_horas * (1 - descuento), 2)
-
+        return round(self.precio_base * horas * (1 - descuento), 2)
 
 # --- Servicio 2: Alquiler de Equipos ---
 
@@ -199,11 +202,10 @@ class ServicioAlquilerEquipo(Servicio):
     def tipo(self): return "Equipo"
     def describir_servicio(self): return f"Equipo: {self.__tipo_equipo}"
 
-    def calcular_costo(self, duracion_horas, impuesto=0.19, **kw):
-        if duracion_horas <= 0: raise CalculoInconsistenteError("Duración inválida.")
+    def calcular_costo(self, horas, impuesto=0.19, **kw):
+        if horas <= 0: raise CalculoInconsistenteError("Duración inválida.")
         if impuesto < 0: raise CalculoInconsistenteError("Impuesto negativo.")
-        return round(self.precio_base * duracion_horas * (1 + impuesto), 2)
-
+        return round(self.precio_base * horas * (1 + impuesto), 2)
 
 # --- Servicio 3: Asesoría Especializada ---
 
@@ -214,8 +216,8 @@ class ServicioAsesoria(Servicio):
 
     def __init__(self, id_s, nombre, precio_base, area, disponible=True):
         super().__init__(id_s, nombre, precio_base, disponible)
-        if area.lower() not in self.AREAS:
-            raise ParametroFaltanteError(f"Área inválida: '{area}'. Válidas: {self.AREAS}")
+        if area.lower() not in self.AREAS_VALIDAS:
+            raise ParametroFaltanteError(f"Área inválida: '{area}'. Válidas: {self.AREAS_VALIDAS}")
         self.__area = area.lower()
 
     def tipo(self): return "Asesoría"
@@ -304,10 +306,10 @@ class SistemaGestionFJ:
     """Controlador principal que gestiona clientes, servicios y reservas."""
 
     def __init__(self):
-        self.__clientes: list[Cliente] = []
-        self.__servicios: list[Servicio] = []
-        self.__reservas: list[Reserva] = []
-        self.__contador_reserva = 1
+        self.__clientes = []
+        self.__servicios = []
+        self.__reservas = []
+        self.__contador = 1
         Logger.info("Sistema Software FJ iniciado.")
 
     # --- Gestión de Clientes ---
@@ -396,6 +398,17 @@ def cargar_demo(sistema: SistemaGestionFJ):
     sistema.agregar_servicio(ServicioReservaSala(4, "Sala B (Mantenimiento)", 30.0, capacidad=5, disponible=False))
 
     ops = []
+
+    def intentar(num, desc, fn):
+        Logger.info(f">>> {num}: {desc}")
+        try:
+            resultado = fn()
+            ops.append((num, "OK", resultado or desc))
+            return True
+        except SoftwareFJException as e:
+            Logger.error(f"{num} capturado [{type(e).__name__}]: {e}")
+            ops.append((num, "EXCEPCION", f"{type(e).__name__}: {e}"))
+            return False
 
     # ================================================================
     # OPERACIÓN 1: Registro de cliente válido
@@ -529,23 +542,25 @@ class App(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Software FJ — Sistema de Gestión")
-        self.geometry("1150x720")
-        self.minsize(900, 600)
+        self.geometry("1200x740")
+        self.minsize(960, 620)
         self.configure(bg=self.BG)
-        self.resizable(True, True)
+        
+        
 
-        self.sistema = SistemaGestionFJ()
-        Logger._widget = self._agregar_log
+        self.sistema        = SistemaGestionFJ()
+        Logger._widget_cb   = self._agregar_log
 
         self._build_ui()
         self._refrescar_todo()
+        self._show_panel("dashboard")
 
     # ----------------------------------------------------------
     # BUILD UI
     # ----------------------------------------------------------
     def _build_ui(self):
         # Header
-        hdr = tk.Frame(self, bg=self.SURFACE, height=60)
+        hdr = tk.Frame(self, bg=self.SURFACE, height=62)
         hdr.pack(fill="x", side="top")
         hdr.pack_propagate(False)
 
@@ -599,7 +614,7 @@ class App(tk.Tk):
         self._show_panel("dashboard")
 
     def _build_sidebar(self, parent):
-        sb = tk.Frame(parent, bg=self.SURFACE, width=180)
+        sb = tk.Frame(parent, bg=self.SURFACE, width=185)
         sb.pack(side="left", fill="y")
         sb.pack_propagate(False)
 
@@ -695,63 +710,68 @@ class App(tk.Tk):
         return f
 
     def _show_panel(self, key):
-        for k, p in self.panels.items():
-            p.pack_forget()
-        self.panels[key].pack(fill="both", expand=True, padx=24, pady=20)
+        for p in self.panels.values():
+            p.place_forget()
+        self.panels[key].place(relx=0, rely=0, relwidth=1, relheight=1)
         for k, btn in self._nav_btns.items():
-            if k == key:
-                btn.configure(bg=self.SURF2, fg=self.ACCENT)
-            else:
-                btn.configure(bg=self.SURFACE, fg=self.MUTED)
-        if key == "clientes":       self._refresh_clientes()
-        if key == "servicios":      self._refresh_servicios()
-        if key == "reservas":       self._refresh_reservas()
-        if key == "nueva_reserva":  self._poblar_selectores()
+            btn.configure(bg=self.SURF2 if k == key else self.SURFACE,
+                          fg=self.ACCENT if k == key else self.MUTED)
+        refresh_map = {
+            "clientes":      self._refresh_clientes,
+            "servicios":     self._refresh_servicios,
+            "reservas":      self._refresh_reservas,
+            "nueva_reserva": self._poblar_selectores,
+            "dashboard":     self._refresh_dashboard,
+        }
+        if key in refresh_map:
+            refresh_map[key]()
 
     # -- DASHBOARD --
     def _build_panel_dashboard(self):
-        p = self._make_panel("dashboard")
+        p = tk.Frame(self.content, bg=self.BG)
+        self.panels["dashboard"] = p
+        inner = tk.Frame(p, bg=self.BG)
+        inner.pack(fill="both", expand=True, padx=24, pady=20)
 
-        tk.Label(p, text="Dashboard", bg=self.BG, fg=self.TEXT,
+        tk.Label(inner, text="Dashboard", bg=self.BG, fg=self.TEXT,
                  font=("Segoe UI", 18, "bold")).pack(anchor="w")
-        tk.Label(p, text="Vista general del sistema Software FJ",
+        tk.Label(inner, text="Vista general del sistema Software FJ",
                  bg=self.BG, fg=self.MUTED, font=("Segoe UI", 10)).pack(anchor="w", pady=(0,16))
-
+        
         # Demo banner
-        banner = tk.Frame(p, bg=self.SURF2, pady=12, padx=16)
+        banner = tk.Frame(inner, bg=self.SURF2, pady=12, padx=16)
         banner.pack(fill="x", pady=(0,20))
-        tk.Label(banner, text="🚀  Ejecutar Demo Completa — 10 operaciones de ejemplo",
+        tk.Label(banner, text="Ejecutar Demo Completa - 10 operaciones de ejemplo",
                  bg=self.SURF2, fg=self.TEXT, font=self.FONT_H).pack(side="left")
-        tk.Button(banner, text="▶  Iniciar Demo", bg=self.ACCENT, fg=self.BG,
+        tk.Button(banner, text="Iniciar Demo", bg=self.ACCENT, fg=self.BG,
                   font=self.FONT_H, bd=0, padx=14, pady=6, cursor="hand2",
                   command=self._ejecutar_demo).pack(side="right")
 
         # Stats cards
-        cards_frame = tk.Frame(p, bg=self.BG)
-        cards_frame.pack(fill="x", pady=(0,16))
-
+        cf = tk.Frame(inner, bg=self.BG)
+        cf.pack(fill="x", pady=(0,16))
         self.dash_stat_labels = {}
-        for label, key, color in [
+        for lbl, key, color in [
             ("Clientes registrados",   "clientes",  self.ACCENT),
             ("Servicios disponibles",  "servicios", self.ACCENT2),
             ("Reservas totales",       "reservas",  "#ff6b35"),
         ]:
-            c = tk.Frame(cards_frame, bg=self.SURFACE, padx=20, pady=14)
+            c = tk.Frame(cf, bg=self.SURFACE, padx=20, pady=14)
             c.pack(side="left", expand=True, fill="x", padx=(0,10))
-            tk.Label(c, text=label, bg=self.SURFACE, fg=self.MUTED,
+            tk.Label(c, text=lbl, bg=self.SURFACE, fg=self.MUTED,
                      font=("Segoe UI", 9)).pack(anchor="w")
-            lbl = tk.Label(c, text="0", bg=self.SURFACE, fg=color,
-                           font=("Segoe UI", 32, "bold"))
-            lbl.pack(anchor="w")
-            self.dash_stat_labels[key] = lbl
+            lbl_w = tk.Label(c, text="0", bg=self.SURFACE, fg=color,
+                             font=("Segoe UI", 32, "bold"))
+            lbl_w.pack(anchor="w")
+            self.dash_stat_labels[key] = lbl_w
 
         # Últimas reservas
-        bot = tk.Frame(p, bg=self.BG)
+        bot = tk.Frame(inner, bg=self.BG)
         bot.pack(fill="both", expand=True)
 
         left = tk.Frame(bot, bg=self.SURFACE, padx=14, pady=12)
         left.pack(side="left", fill="both", expand=True, padx=(0,10))
-        tk.Label(left, text="Últimas Reservas", bg=self.SURFACE, fg=self.TEXT,
+        tk.Label(left, text="Ultimas Reservas", bg=self.SURFACE, fg=self.TEXT,
                  font=self.FONT_H).pack(anchor="w", pady=(0,8))
         self.dash_reservas_text = tk.Text(left, bg=self.SURFACE, fg=self.TEXT,
                                           font=self.FONT_S, bd=0, height=10,
@@ -767,12 +787,45 @@ class App(tk.Tk):
                                          state="disabled")
         self.dash_errores_text.pack(fill="both", expand=True)
 
+    def _refresh_dashboard(self):
+        n_c = len(self.sistema.clientes)
+        n_s = len([s for s in self.sistema.servicios if s.disponible])
+        n_r = len(self.sistema.reservas)
+        self.dash_stat_labels["clientes"].config(text=str(n_c))
+        self.dash_stat_labels["servicios"].config(text=str(n_s))
+        self.dash_stat_labels["reservas"].config(text=str(n_r))
+
+        self.dash_reservas_text.configure(state="normal")
+        self.dash_reservas_text.delete("1.0", "end")
+        for r in reversed(self.sistema.reservas[-6:]):
+            self.dash_reservas_text.insert(
+                "end",
+                f"#{r.id_entidad}  {r.cliente.nombre} -> {r.servicio.nombre}\n"
+                f"     {r.estado.upper()} | "
+                f"{'$'+str(r.costo) if r.costo is not None else '-'} | {r.fecha}\n\n"
+            )
+        self.dash_reservas_text.configure(state="disabled")
+
+        errores = [(n, m) for n, m in Logger.logs if n == "ERROR"]
+        self.dash_errores_text.configure(state="normal")
+        self.dash_errores_text.delete("1.0", "end")
+        if errores:
+            for _, msg in reversed(errores[-6:]):
+                self.dash_errores_text.insert("end", f"X {msg}\n\n")
+        else:
+            self.dash_errores_text.insert("end", "Sin errores registrados")
+        self.dash_errores_text.configure(state="disabled")
+
     def _ejecutar_demo(self):
         self.sistema = SistemaGestionFJ()
+        Logger.logs.clear()
         self._limpiar_log()
+
+        print("Servicios antes del demo:", len(self.sistema.servicios))
+        ops = cargar_demo(self.sistema)
+        print("Servicios después del demo:", len(self.sistema.servicios))
         ops = cargar_demo(self.sistema)
         self._refrescar_todo()
-        self._show_panel("dashboard")
 
         # Mostrar resultados en popup
         win = tk.Toplevel(self)
@@ -782,181 +835,195 @@ class App(tk.Tk):
         win.grab_set()
 
         tk.Label(win, text="Resultados de la Demo",
-                 bg=self.BG, fg=self.TEXT, font=("Segoe UI", 14, "bold")).pack(pady=(16,4), padx=20, anchor="w")
-        tk.Label(win, text="10 operaciones ejecutadas con validaciones y manejo de excepciones",
-                 bg=self.BG, fg=self.MUTED, font=("Segoe UI", 9)).pack(padx=20, anchor="w", pady=(0,12))
+                 bg=self.BG, fg=self.TEXT, font=("Segoe UI", 14, "bold")).pack(
+                 pady=(16,4), padx=20, anchor="w")
+        tk.Label(win, text="10 operaciones con validaciones y manejo de excepciones",
+                 bg=self.BG, fg=self.MUTED, font=("Segoe UI", 9)).pack(
+                 padx=20, anchor="w", pady=(0,12))
 
         # Tabla
-        cols = ("Operación", "Estado", "Detalle")
-        tv = ttk.Treeview(win, columns=cols, show="headings", height=12)
+        
         style = ttk.Style()
         style.theme_use("default")
-        style.configure("Treeview",
+        style.configure("Demo.Treeview",
                         background=self.SURFACE, foreground=self.TEXT,
-                        rowheight=28, fieldbackground=self.SURFACE,
+                        rowheight=30, fieldbackground=self.SURFACE,
                         font=("Consolas", 9))
-        style.configure("Treeview.Heading",
+        style.configure("Demo.Treeview.Heading",
                         background=self.SURF2, foreground=self.ACCENT,
                         font=("Segoe UI", 9, "bold"))
-        style.map("Treeview", background=[("selected", self.SURF2)])
+        style.map("Demo.Treeview", background=[("selected", self.SURF2)])
 
-        tv.heading("Operación", text="Operación")
-        tv.heading("Estado", text="Estado")
-        tv.heading("Detalle", text="Detalle")
-        tv.column("Operación", width=80, anchor="center")
-        tv.column("Estado", width=100, anchor="center")
-        tv.column("Detalle", width=480)
+        frame_tv = tk.Frame(win, bg=self.BG)
+        frame_tv.pack(fill="both", expand=True, padx=16)
+        sb2 = ttk.Scrollbar(frame_tv)
+        sb2.pack(side="right", fill="y")
+
+        cols = ("Operacion", "Estado", "Detalle")
+        tv = ttk.Treeview(frame_tv, columns=cols, show="headings",
+                          height=13, style="Demo.Treeview",
+                          yscrollcommand=sb2.set)
+        sb2.config(command=tv.yview)
+        tv.heading("Operacion", text="Operacion")
+        tv.heading("Estado",    text="Estado")
+        tv.heading("Detalle",   text="Detalle")
+        tv.column("Operacion", width=80,  anchor="center")
+        tv.column("Estado",    width=110, anchor="center")
+        tv.column("Detalle",   width=530)
+        tv.pack(fill="both", expand=True)
 
         for op, estado, detalle in ops:
-            tag = "ok" if estado == "OK" else ("exc" if estado == "EXCEPCIÓN" else "err")
+            
+            tag = "ok" if estado == "OK" else "exc"
             tv.insert("", "end", values=(op, estado, detalle), tags=(tag,))
-
         tv.tag_configure("ok",  foreground=self.ACCENT)
         tv.tag_configure("exc", foreground=self.WARN)
-        tv.tag_configure("err", foreground=self.DANGER)
-        tv.pack(fill="both", expand=True, padx=16, pady=(0,12))
+        
 
         tk.Button(win, text="Cerrar", bg=self.ACCENT, fg=self.BG,
                   font=self.FONT_H, bd=0, padx=20, pady=6,
-                  command=win.destroy).pack(pady=(0,16))
+                  command=win.destroy).pack(pady=12)
 
     # -- CLIENTES --
     def _build_panel_clientes(self):
-        p = self._make_panel("clientes")
+        p = tk.Frame(self.content, bg=self.BG)
+        self.panels["clientes"] = p
+        inner = tk.Frame(p, bg=self.BG)
+        inner.pack(fill="both", expand=True, padx=24, pady=20)
 
-        tk.Label(p, text="Clientes", bg=self.BG, fg=self.TEXT,
+        tk.Label(inner, text="Clientes", bg=self.BG, fg=self.TEXT,
                  font=("Segoe UI", 18, "bold")).pack(anchor="w")
-        tk.Label(p, text="Registro y gestión de clientes con validación de datos",
+        tk.Label(inner, text="Registro y gestion con validacion de datos",
                  bg=self.BG, fg=self.MUTED, font=("Segoe UI", 10)).pack(anchor="w", pady=(0,14))
 
-        # Form
-        form = tk.Frame(p, bg=self.SURFACE, padx=16, pady=14)
+        form = tk.Frame(inner, bg=self.SURFACE, padx=16, pady=14)
         form.pack(fill="x", pady=(0,16))
         tk.Label(form, text="Registrar nuevo cliente", bg=self.SURFACE, fg=self.TEXT,
                  font=self.FONT_H).grid(row=0, column=0, columnspan=4, sticky="w", pady=(0,10))
 
-        labels = ["ID", "Nombre", "Email", "Teléfono"]
-        self.c_vars = [tk.StringVar() for _ in labels]
-        for i, (lbl, var) in enumerate(zip(labels, self.c_vars)):
+        self.c_vars = [tk.StringVar() for _ in range(4)]
+        for i, lbl in enumerate(["ID", "Nombre", "Email", "Telefono"]):
             tk.Label(form, text=lbl, bg=self.SURFACE, fg=self.MUTED,
                      font=("Segoe UI", 8)).grid(row=1, column=i, sticky="w", padx=(0,8))
-            e = tk.Entry(form, textvariable=var, bg=self.SURF2, fg=self.TEXT,
-                         font=self.FONT_N, bd=0, insertbackground=self.TEXT, width=18)
-            e.grid(row=2, column=i, padx=(0,10), pady=(2,8), ipady=6)
+            tk.Entry(form, textvariable=self.c_vars[i], bg=self.SURF2, fg=self.TEXT,
+                     font=self.FONT_N, bd=0, insertbackground=self.TEXT,
+                     width=18).grid(row=2, column=i, padx=(0,10), pady=(2,8), ipady=6)
 
-        tk.Button(form, text="◈  Registrar cliente", bg=self.ACCENT, fg=self.BG,
+        tk.Button(form, text="Registrar cliente", bg=self.ACCENT, fg=self.BG,
                   font=self.FONT_H, bd=0, padx=14, pady=6, cursor="hand2",
                   command=self._registrar_cliente).grid(row=3, column=0, columnspan=2, sticky="w")
 
-        # Lista
-        tk.Label(p, text="Clientes registrados", bg=self.BG, fg=self.TEXT,
+        tk.Label(inner, text="Clientes registrados", bg=self.BG, fg=self.TEXT,
                  font=self.FONT_H).pack(anchor="w", pady=(0,6))
-
-        cols = ("ID", "Nombre", "Email", "Teléfono")
-        self.tv_clientes = self._make_treeview(p, cols, [50, 160, 200, 130])
-        self.tv_clientes.pack(fill="both", expand=True)
+        self.tv_clientes = self._make_treeview(inner,
+            ("ID","Nombre","Email","Telefono"), (50,180,220,140))
 
     def _registrar_cliente(self):
         try:
-            id_c = int(self.c_vars[0].get())
+            id_c   = int(self.c_vars[0].get())
             nombre = self.c_vars[1].get()
-            email = self.c_vars[2].get()
-            tel = self.c_vars[3].get()
+            email  = self.c_vars[2].get()
+            tel    = self.c_vars[3].get()
             self.sistema.registrar_cliente(id_c, nombre, email, tel)
             for v in self.c_vars: v.set("")
             self._refrescar_todo()
-            messagebox.showinfo("✓ Cliente registrado", f"Cliente '{nombre}' registrado correctamente.")
+            messagebox.showinfo("Registrado", f"Cliente '{nombre}' registrado correctamente.")
         except ValueError:
-            messagebox.showerror("Error", "El ID debe ser un número entero.")
+            messagebox.showerror("Error", "El ID debe ser un numero entero positivo.")
         except SoftwareFJException as e:
             messagebox.showerror(type(e).__name__, str(e))
 
     def _refresh_clientes(self):
         self.tv_clientes.delete(*self.tv_clientes.get_children())
         for c in self.sistema.clientes:
-            self.tv_clientes.insert("", "end", values=(
-                c.id_entidad, c.nombre, c.email, c.telefono))
+            self.tv_clientes.insert("", "end",
+                values=(c.id_entidad, c.nombre, c.email, c.telefono))
 
     # -- SERVICIOS --
     def _build_panel_servicios(self):
-        p = self._make_panel("servicios")
-        tk.Label(p, text="Servicios", bg=self.BG, fg=self.TEXT,
+        p = tk.Frame(self.content, bg=self.BG)
+        self.panels["servicios"] = p
+        inner = tk.Frame(p, bg=self.BG)
+        inner.pack(fill="both", expand=True, padx=24, pady=20)
+
+        tk.Label(inner, text="Servicios", bg=self.BG, fg=self.TEXT,
                  font=("Segoe UI", 18, "bold")).pack(anchor="w")
-        tk.Label(p, text="Catálogo de servicios de Software FJ",
+        tk.Label(inner, text="Catalogo de servicios de Software FJ",
                  bg=self.BG, fg=self.MUTED, font=("Segoe UI", 10)).pack(anchor="w", pady=(0,14))
 
-        cols = ("ID", "Tipo", "Nombre", "Precio/h", "Descripción", "Estado")
-        self.tv_servicios = self._make_treeview(p, cols, [40, 80, 160, 70, 200, 90])
-        self.tv_servicios.pack(fill="both", expand=True)
+        self.tv_servicios = self._make_treeview(inner,
+            ("ID","Tipo","Nombre","Precio/h","Descripcion","Estado"),
+            (40, 80, 170, 75, 210, 100))
 
     def _refresh_servicios(self):
         self.tv_servicios.delete(*self.tv_servicios.get_children())
         for s in self.sistema.servicios:
-            self.tv_servicios.insert("", "end",
+            tag = "ok" if s.disponible else "off"
+            self.tv_servicios.insert("", "end", tags=(tag,),
                 values=(s.id_entidad, s.tipo(), s.nombre, f"${s.precio_base}",
                         s.describir_servicio(),
-                        "Disponible" if s.disponible else "No disponible"),
-                tags=("ok" if s.disponible else "off",))
+                        "Disponible" if s.disponible else "No disponible"))
         self.tv_servicios.tag_configure("ok",  foreground=self.ACCENT)
         self.tv_servicios.tag_configure("off", foreground=self.DANGER)
 
     # -- RESERVAS --
-    def _build_panel_reservas(self):
-        p = self._make_panel("reservas")
-        tk.Label(p, text="Reservas", bg=self.BG, fg=self.TEXT,
-                 font=("Segoe UI", 18, "bold")).pack(anchor="w")
-        tk.Label(p, text="Historial completo — selecciona una reserva para gestionarla",
-                 bg=self.BG, fg=self.MUTED, font=("Segoe UI", 10)).pack(anchor="w", pady=(0,14))
-
+    def _build_panel_nueva_reserva(self):
+        p = tk.Frame(self.content, bg=self.BG)
+        self.panels["nueva_reserva"] = p
+        inner = tk.Frame(p, bg=self.BG)
+        inner.pack(fill="both", expand=True, padx=24, pady=20)
+        
         # Botones de acción
-        btn_frame = tk.Frame(p, bg=self.BG)
-        btn_frame.pack(anchor="w", pady=(0,10))
-        tk.Button(btn_frame, text="✓  Confirmar", bg=self.ACCENT, fg=self.BG,
+        tk.Label(inner, text="Reservas", bg=self.BG, fg=self.TEXT,
+                 font=("Segoe UI", 18, "bold")).pack(anchor="w")
+        tk.Label(inner, text="Selecciona una fila y usa los botones para gestionar",
+                 bg=self.BG, fg=self.MUTED, font=("Segoe UI", 10)).pack(anchor="w", pady=(0,10))
+
+        bf = tk.Frame(inner, bg=self.BG)
+        bf.pack(anchor="w", pady=(0,10))
+        tk.Button(bf, text="Confirmar", bg=self.ACCENT, fg=self.BG,
                   font=self.FONT_H, bd=0, padx=12, pady=5, cursor="hand2",
                   command=self._confirmar_selected).pack(side="left", padx=(0,8))
-        tk.Button(btn_frame, text="✕  Cancelar", bg=self.DANGER, fg="white",
+        tk.Button(bf, text="Cancelar", bg=self.DANGER, fg="white",
                   font=self.FONT_H, bd=0, padx=12, pady=5, cursor="hand2",
                   command=self._cancelar_selected).pack(side="left")
 
-        cols = ("ID", "Cliente", "Servicio", "Horas", "Estado", "Costo", "Fecha")
-        self.tv_reservas = self._make_treeview(p, cols, [40,130,150,50,90,80,90])
-        self.tv_reservas.pack(fill="both", expand=True)
+        self.tv_reservas = self._make_treeview(inner,
+            ("ID","Cliente","Servicio","Horas","Estado","Costo","Fecha"),
+            (40, 145, 165, 55, 100, 80, 100))
 
     def _refresh_reservas(self):
         self.tv_reservas.delete(*self.tv_reservas.get_children())
-        tag_map = {"confirmada": "conf", "cancelada": "canc", "pendiente": "pend"}
+        tag_map = {"confirmada":"conf","cancelada":"canc","pendiente":"pend"}
         for r in self.sistema.reservas:
-            tag = tag_map.get(r.estado, "pend")
-            self.tv_reservas.insert("", "end",
+            self.tv_reservas.insert("", "end", tags=(tag_map.get(r.estado,"pend"),),
                 values=(r.id_entidad, r.cliente.nombre, r.servicio.nombre,
                         r.duracion, r.estado.upper(),
-                        f"${r.costo}" if r.costo is not None else "—",
-                        r.fecha),
-                tags=(tag,))
+                        f"${r.costo}" if r.costo is not None else "-",
+                        r.fecha))
         self.tv_reservas.tag_configure("conf", foreground=self.ACCENT)
         self.tv_reservas.tag_configure("canc", foreground=self.DANGER)
         self.tv_reservas.tag_configure("pend", foreground=self.WARN)
 
-    def _get_selected_reserva_id(self):
+    def _get_selected_id(self):
         sel = self.tv_reservas.selection()
         if not sel:
             messagebox.showwarning("Aviso", "Selecciona una reserva de la lista.")
             return None
-        vals = self.tv_reservas.item(sel[0])["values"]
-        return int(vals[0])
+        return int(self.tv_reservas.item(sel[0])["values"][0])
 
     def _confirmar_selected(self):
-        id_r = self._get_selected_reserva_id()
+        id_r = self._get_selected_id()
         if id_r is None: return
         try:
             r = self.sistema.confirmar_reserva(id_r)
             self._refrescar_todo()
-            messagebox.showinfo("✓ Confirmada", f"Reserva #{id_r} confirmada.\nCosto: ${r.costo}")
+            messagebox.showinfo("Confirmada", f"Reserva #{id_r} confirmada.\nCosto: ${r.costo}")
         except SoftwareFJException as e:
             messagebox.showerror(type(e).__name__, str(e))
 
     def _cancelar_selected(self):
-        id_r = self._get_selected_reserva_id()
+        id_r = self._get_selected_id()
         if id_r is None: return
         try:
             self.sistema.cancelar_reserva(id_r)
@@ -966,16 +1033,21 @@ class App(tk.Tk):
             messagebox.showerror(type(e).__name__, str(e))
 
     # -- NUEVA RESERVA --
-    def _build_panel_nueva_reserva(self):
-        p = self._make_panel("nueva_reserva")
-        tk.Label(p, text="Nueva Reserva", bg=self.BG, fg=self.TEXT,
+    
+    def _build_panel_reservas(self):
+        p = tk.Frame(self.content, bg=self.BG)
+        self.panels["reservas"] = p
+        inner = tk.Frame(p, bg=self.BG)
+        inner.pack(fill="both", expand=True, padx=24, pady=20)
+
+        tk.Label(inner, text="Nueva Reserva", bg=self.BG, fg=self.TEXT,
                  font=("Segoe UI", 18, "bold")).pack(anchor="w")
-        tk.Label(p, text="Crear y confirmar una reserva para un cliente",
+        tk.Label(inner, text="Crear y confirmar una reserva para un cliente",
                  bg=self.BG, fg=self.MUTED, font=("Segoe UI", 10)).pack(anchor="w", pady=(0,14))
 
-        form = tk.Frame(p, bg=self.SURFACE, padx=20, pady=16)
+        form = tk.Frame(inner, bg=self.SURFACE, padx=20, pady=16)
         form.pack(fill="x")
-
+        
         # Cliente
         row0 = tk.Frame(form, bg=self.SURFACE)
         row0.pack(fill="x", pady=(0,12))
@@ -998,11 +1070,13 @@ class App(tk.Tk):
         self.r_servicio_cb.bind("<<ComboboxSelected>>", self._on_servicio_selected)
 
         # Duración + parámetro extra
+
         row2 = tk.Frame(form, bg=self.SURFACE)
         row2.pack(fill="x", pady=(0,12))
+        
         lf = tk.Frame(row2, bg=self.SURFACE)
-        lf.pack(side="left", padx=(0,20))
-        tk.Label(lf, text="DURACIÓN (horas)", bg=self.SURFACE, fg=self.MUTED,
+        lf.pack(side="left", padx=(0,24))
+        tk.Label(lf, text="DURACION (horas)", bg=self.SURFACE, fg=self.MUTED,
                  font=("Segoe UI", 8)).pack(anchor="w")
         self.r_duracion_var = tk.StringVar()
         tk.Entry(lf, textvariable=self.r_duracion_var, bg=self.SURF2, fg=self.TEXT,
@@ -1028,29 +1102,29 @@ class App(tk.Tk):
         self.costo_lbl.pack(anchor="w", pady=(4,8))
 
         # Botones
-        btn_row = tk.Frame(form, bg=self.SURFACE)
-        btn_row.pack(anchor="w")
-        tk.Button(btn_row, text="⟳  Calcular costo", bg=self.SURF2, fg=self.TEXT,
+        bf = tk.Frame(form, bg=self.SURFACE)
+        bf.pack(anchor="w")
+        tk.Button(bf, text="Calcular costo", bg=self.SURF2, fg=self.TEXT,
                   font=self.FONT_N, bd=0, padx=12, pady=6, cursor="hand2",
                   command=self._calcular_preview).pack(side="left", padx=(0,10))
-        tk.Button(btn_row, text="◉  Crear y confirmar", bg=self.ACCENT, fg=self.BG,
+        tk.Button(bf, text="Crear y confirmar", bg=self.ACCENT, fg=self.BG,
                   font=self.FONT_H, bd=0, padx=14, pady=6, cursor="hand2",
-                  command=self._crear_confirmar_reserva).pack(side="left")
+                  command=self._crear_confirmar).pack(side="left")
 
     def _poblar_selectores(self):
-        clientes = [f"{c.id_entidad} — {c.nombre}" for c in self.sistema.clientes]
+        clientes = [f"{c.id_entidad} | {c.nombre}" for c in self.sistema.clientes]
         self.r_cliente_cb["values"] = clientes
-        servicios = [f"{s.id_entidad} — {s.nombre} (${s.precio_base}/h)" for s in self.sistema.servicios]
+        servicios = [f"{s.id_entidad} | {s.nombre} (${s.precio_base}/h)" for s in self.sistema.servicios]
         self.r_servicio_cb["values"] = servicios
         self.costo_preview_var.set("")
 
     def _on_servicio_selected(self, _=None):
         self.costo_preview_var.set("")
         try:
-            id_s = int(self.r_servicio_var.get().split("—")[0].strip())
+            id_s = int(self.r_servicio_var.get().split("|")[0].strip())
             s = self.sistema.buscar_servicio(id_s)
             if isinstance(s, ServicioReservaSala):
-                self.r_extra_label_var.set("Descuento (0–1, ej: 0.2 = 20%)")
+                self.r_extra_label_var.set("Descuento (0-1, ej: 0.2 = 20%)")
                 self.r_extra_var.set("0")
             elif isinstance(s, ServicioAlquilerEquipo):
                 self.r_extra_label_var.set("Impuesto (ej: 0.19 = 19% IVA)")
@@ -1062,72 +1136,75 @@ class App(tk.Tk):
             pass
 
     def _get_opts(self):
-        id_s = int(self.r_servicio_var.get().split("—")[0].strip())
+        id_s = int(self.r_servicio_var.get().split("|")[0].strip())
         s = self.sistema.buscar_servicio(id_s)
-        extra = self.r_extra_var.get()
+        v = self.r_extra_var.get()
         if isinstance(s, ServicioReservaSala):
-            return {"descuento": float(extra or 0)}
+            return {"descuento": float(v or 0)}
         elif isinstance(s, ServicioAlquilerEquipo):
-            return {"impuesto": float(extra if extra else 0.19)}
+            return {"impuesto": float(v) if v else 0.19}
         elif isinstance(s, ServicioAsesoria):
-            return {"nivel_experto": int(extra or 1)}
+            return {"nivel_experto": int(v or 1)}
         return {}
 
     def _calcular_preview(self):
         try:
-            id_s = int(self.r_servicio_var.get().split("—")[0].strip())
+            id_s = int(self.r_servicio_var.get().split("|")[0].strip())
             horas = float(self.r_duracion_var.get())
-            s = self.sistema.buscar_servicio(id_s)
-            opts = self._get_opts()
-            costo = s.calcular_costo(horas, **opts)
+            s     = self.sistema.buscar_servicio(id_s)
+            costo = s.calcular_costo(horas, **self._get_opts())
             self.costo_preview_var.set(f"Costo estimado: ${costo:.2f}")
         except SoftwareFJException as e:
             messagebox.showerror(type(e).__name__, str(e))
         except Exception as e:
-            messagebox.showerror("Error", f"Verifica los campos: {e}")
+            messagebox.showerror("Error", f"Verifica los campos.\n{e}")
 
-    def _crear_confirmar_reserva(self):
+
+    def _crear_confirmar(self):
         try:
-            id_c = int(self.r_cliente_var.get().split("—")[0].strip())
-            id_s = int(self.r_servicio_var.get().split("—")[0].strip())
+            id_c = int(self.r_cliente_var.get().split("|")[0].strip())
+            id_s = int(self.r_servicio_var.get().split("|")[0].strip())
             horas = float(self.r_duracion_var.get())
-            opts = self._get_opts()
+            opts  = self._get_opts()
             r = self.sistema.crear_reserva(id_c, id_s, horas)
             self.sistema.confirmar_reserva(r.id_entidad, **opts)
             self._refrescar_todo()
-            messagebox.showinfo("✓ Reserva confirmada",
-                                f"Reserva #{r.id_entidad} creada y confirmada.\nCosto total: ${r.costo}")
             self.costo_preview_var.set("")
+            messagebox.showinfo("Confirmada",
+                                f"Reserva #{r.id_entidad} creada y confirmada.\nCosto: ${r.costo}")
         except SoftwareFJException as e:
             messagebox.showerror(type(e).__name__, str(e))
         except Exception as e:
-            messagebox.showerror("Error", f"Verifica los campos: {e}")
+            messagebox.showerror("Error", f"Verifica los campos.\n{e}")
 
     # ----------------------------------------------------------
     # HELPERS
     # ----------------------------------------------------------
     def _make_treeview(self, parent, cols, widths):
         frame = tk.Frame(parent, bg=self.BG)
+        frame.pack(fill="both", expand=True)
+
         style = ttk.Style()
         style.theme_use("default")
-        style.configure("Custom.Treeview",
+        style.configure("FJ.Treeview",
                         background=self.SURFACE, foreground=self.TEXT,
                         rowheight=26, fieldbackground=self.SURFACE,
                         font=("Consolas", 9))
-        style.configure("Custom.Treeview.Heading",
+        style.configure("FJ.Treeview.Heading",
                         background=self.SURF2, foreground=self.ACCENT,
                         font=("Segoe UI", 9, "bold"), relief="flat")
-        style.map("Custom.Treeview", background=[("selected", self.SURF2)])
+        style.map("FJ.Treeview", background=[("selected", self.SURF2)])
+
+        sb = ttk.Scrollbar(frame, orient="vertical")
+        sb.pack(side="right", fill="y")
 
         tv = ttk.Treeview(frame, columns=cols, show="headings",
-                          style="Custom.Treeview")
+                          style="FJ.Treeview", yscrollcommand=sb.set)
+        sb.config(command=tv.yview)
         for col, w in zip(cols, widths):
             tv.heading(col, text=col)
-            tv.column(col, width=w, anchor="w")
-        sb = ttk.Scrollbar(frame, orient="vertical", command=tv.yview)
-        tv.configure(yscrollcommand=sb.set)
-        tv.pack(side="left", fill="both", expand=True)
-        sb.pack(side="right", fill="y")
+            tv.column(col, width=w, anchor="w", stretch=False)
+        tv.pack(fill="both", expand=True)
         return tv
 
     def _refrescar_todo(self):
@@ -1137,50 +1214,10 @@ class App(tk.Tk):
         self.stat_vars["clientes"].set(str(n_c))
         self.stat_vars["servicios"].set(str(n_s))
         self.stat_vars["reservas"].set(str(n_r))
-        self.dash_stat_labels["clientes"].config(text=str(n_c))
-        self.dash_stat_labels["servicios"].config(text=str(n_s))
-        self.dash_stat_labels["reservas"].config(text=str(n_r))
-        self._refresh_dashboard_lists()
-
-    def _refresh_dashboard_lists(self):
-        # Últimas reservas
-        self.dash_reservas_text.configure(state="normal")
-        self.dash_reservas_text.delete("1.0", "end")
-        for r in reversed(self.sistema.reservas[-5:]):
-            self.dash_reservas_text.insert(
-                "end",
-                f"#{r.id_entidad}  {r.cliente.nombre} → {r.servicio.nombre}\n"
-                f"     {r.estado.upper()} | "
-                f"{'$'+str(r.costo) if r.costo else '—'} | {r.fecha}\n\n"
-            )
-        self.dash_reservas_text.configure(state="disabled")
-
-        # Errores del log
-        errores = [l for l in Logger.logs if l[0] == "ERROR"] if hasattr(Logger, "logs") else []
-        self.dash_errores_text.configure(state="normal")
-        self.dash_errores_text.delete("1.0", "end")
-        for _, msg in reversed(errores[-6:]):
-            self.dash_errores_text.insert("end", f"✕ {msg}\n\n")
-        self.dash_errores_text.configure(state="disabled")
-
-
-# Guardar logs internos para el dashboard
-Logger.logs = []
-
-def _escribir_ext(nivel, mensaje):
-    Logger.logs.append((nivel, mensaje))
-    ts = datetime.now().strftime("%H:%M:%S")
-    linea = f"[{ts}] [{nivel}] {mensaje}"
-    try:
-        with open(Logger.LOG_FILE, "a", encoding="utf-8") as f:
-            f.write(linea + "\n")
-    except IOError:
-        pass
-    if Logger._widget:
-        Logger._widget(nivel, linea)
-
-Logger._escribir = staticmethod(_escribir_ext)
-
+        self._refresh_dashboard()
+        self._refresh_clientes()
+        self._refresh_servicios()
+        self._refresh_reservas()
 
 # ============================================================
 # MAIN

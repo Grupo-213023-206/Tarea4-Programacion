@@ -1,3 +1,529 @@
 [00:56:16] [INFO] Sistema Software FJ iniciado correctamente.
 
 [01:42:09] [INFO] Sistema Software FJ iniciado.
+[02:05:50] [INFO] Sistema Software FJ iniciado.
+[02:06:27] [INFO] Sistema Software FJ iniciado.
+[02:06:27] [INFO] ==================================================
+[02:06:27] [INFO] INICIO DEMO — 10 OPERACIONES
+[02:06:27] [INFO] ==================================================
+[02:06:27] [EVENTO] Servicio agregado: [1] Sala Ejecutiva A | $50.0/h | Disponible
+[02:06:27] [EVENTO] Servicio agregado: [2] Laptop HP ProBook | $15.0/h | Disponible
+[02:06:30] [INFO] Sistema Software FJ iniciado.
+[02:06:30] [INFO] ==================================================
+[02:06:30] [INFO] INICIO DEMO — 10 OPERACIONES
+[02:06:30] [INFO] ==================================================
+[02:06:30] [EVENTO] Servicio agregado: [1] Sala Ejecutiva A | $50.0/h | Disponible
+[02:06:30] [EVENTO] Servicio agregado: [2] Laptop HP ProBook | $15.0/h | Disponible
+[02:06:31] [INFO] Sistema Software FJ iniciado.
+[02:06:31] [INFO] ==================================================
+[02:06:31] [INFO] INICIO DEMO — 10 OPERACIONES
+[02:06:31] [INFO] ==================================================
+[02:06:31] [EVENTO] Servicio agregado: [1] Sala Ejecutiva A | $50.0/h | Disponible
+[02:06:31] [EVENTO] Servicio agregado: [2] Laptop HP ProBook | $15.0/h | Disponible
+[02:06:31] [INFO] Sistema Software FJ iniciado.
+[02:06:31] [INFO] ==================================================
+[02:06:31] [INFO] INICIO DEMO — 10 OPERACIONES
+[02:06:31] [INFO] ==================================================
+[02:06:31] [EVENTO] Servicio agregado: [1] Sala Ejecutiva A | $50.0/h | Disponible
+[02:06:31] [EVENTO] Servicio agregado: [2] Laptop HP ProBook | $15.0/h | Disponible
+[02:06:31] [INFO] Sistema Software FJ iniciado.
+[02:06:31] [INFO] ==================================================
+[02:06:31] [INFO] INICIO DEMO — 10 OPERACIONES
+[02:06:31] [INFO] ==================================================
+[02:06:31] [EVENTO] Servicio agregado: [1] Sala Ejecutiva A | $50.0/h | Disponible
+[02:06:31] [EVENTO] Servicio agregado: [2] Laptop HP ProBook | $15.0/h | Disponible
+[02:07:01] [INFO] Sistema Software FJ iniciado.
+[02:07:01] [INFO] ==================================================
+[02:07:01] [INFO] INICIO DEMO — 10 OPERACIONES
+[02:07:01] [INFO] ==================================================
+[02:07:01] [EVENTO] Servicio agregado: [1] Sala Ejecutiva A | $50.0/h | Disponible
+[02:07:01] [EVENTO] Servicio agregado: [2] Laptop HP ProBook | $15.0/h | Disponible
+[02:07:31] [EVENTO] Cliente registrado: [1213212] Andres Martinez | andrespabon1117@gmail.com | 3228975397
+[02:08:23] [INFO] Sistema Software FJ iniciado.
+[02:08:23] [INFO] ==================================================
+[02:08:23] [INFO] INICIO DEMO — 10 OPERACIONES
+[02:08:23] [INFO] ==================================================
+[02:08:23] [EVENTO] Servicio agregado: [1] Sala Ejecutiva A | $50.0/h | Disponible
+[02:08:23] [EVENTO] Servicio agregado: [2] Laptop HP ProBook | $15.0/h | Disponible
+[02:08:30] [ERROR] Error al crear reserva: Cliente ID=1213212 no encontrado.
+[02:08:34] [ERROR] Error al crear reserva: Cliente ID=1213212 no encontrado.
+[02:08:43] [ERROR] Error al crear reserva: Cliente ID=1213212 no encontrado.
+[00:58:06] [INFO] Sistema Software FJ iniciado.
+[01:27:13] [INFO] Sistema Software FJ iniciado.
+[01:27:26] [INFO] Sistema Software FJ iniciado.
+[02:38:30] [INFO] Sistema Software FJ iniciado.
+[02:40:26] [INFO] Sistema Software FJ iniciado.
+[02:40:33] [INFO] Sistema Software FJ iniciado.
+[02:42:31] [INFO] Sistema Software FJ iniciado.
+[02:47:50] [INFO] Sistema Software FJ iniciado.
+[02:48:17] [INFO] Sistema Software FJ iniciado.
+[02:48:24] [INFO] Sistema Software FJ iniciado.
+[02:49:27] [INFO] Sistema Software FJ iniciado.
+[02:49:34] [INFO] Sistema Software FJ iniciado.
+[02:53:14] [INFO] Sistema Software FJ iniciado.
+[02:54:33] [INFO] Sistema Software FJ iniciado.
+[02:58:08] [INFO] Sistema Software FJ iniciado.
+[02:58:15] [INFO] Sistema Software FJ iniciado.
+[03:14:40] [INFO] Sistema Software FJ iniciado.
+[03:14:56] [INFO] Sistema Software FJ iniciado.
+[03:15:08] [INFO] Sistema Software FJ iniciado.
+[03:15:08] [INFO] ==================================================
+[03:15:08] [INFO] INICIO DEMO — 10 OPERACIONES
+[03:15:08] [INFO] ==================================================
+[03:15:12] [INFO] Sistema Software FJ iniciado.
+[03:15:12] [INFO] ==================================================
+[03:15:12] [INFO] INICIO DEMO — 10 OPERACIONES
+[03:15:12] [INFO] ==================================================
+[03:15:13] [INFO] Sistema Software FJ iniciado.
+[03:15:13] [INFO] ==================================================
+[03:15:13] [INFO] INICIO DEMO — 10 OPERACIONES
+[03:15:13] [INFO] ==================================================
+[03:15:14] [INFO] Sistema Software FJ iniciado.
+[03:15:14] [INFO] ==================================================
+[03:15:14] [INFO] INICIO DEMO — 10 OPERACIONES
+[03:15:14] [INFO] ==================================================
+[03:16:58] [INFO] Sistema Software FJ iniciado.
+[03:16:58] [INFO] ==================================================
+[03:16:58] [INFO] INICIO DEMO — 10 OPERACIONES
+[03:16:58] [INFO] ==================================================
+[03:18:37] [INFO] Sistema Software FJ iniciado.
+[03:19:23] [INFO] Sistema Software FJ iniciado.
+[03:19:23] [INFO] ==================================================
+[03:19:23] [INFO] INICIO DEMO — 10 OPERACIONES
+[03:19:23] [INFO] ==================================================
+[03:20:13] [INFO] Sistema Software FJ iniciado.
+[03:20:26] [INFO] Sistema Software FJ iniciado.
+[03:20:26] [INFO] ==================================================
+[03:20:26] [INFO] INICIO DEMO — 10 OPERACIONES
+[03:20:26] [INFO] ==================================================
+[03:20:52] [INFO] Sistema Software FJ iniciado.
+[03:20:52] [INFO] ==================================================
+[03:20:52] [INFO] INICIO DEMO — 10 OPERACIONES
+[03:20:52] [INFO] ==================================================
+[03:20:54] [INFO] Sistema Software FJ iniciado.
+[03:20:54] [INFO] ==================================================
+[03:20:54] [INFO] INICIO DEMO — 10 OPERACIONES
+[03:20:54] [INFO] ==================================================
+[03:29:47] [INFO] Sistema Software FJ iniciado.
+[03:29:56] [INFO] Sistema Software FJ iniciado.
+[03:29:56] [INFO] ==================================================
+[03:29:56] [INFO] INICIO DEMO — 10 OPERACIONES
+[03:29:56] [INFO] ==================================================
+[03:34:51] [INFO] Sistema Software FJ iniciado.
+[03:35:54] [INFO] Sistema Software FJ iniciado.
+[03:35:54] [INFO] ==================================================
+[03:35:54] [INFO] INICIO DEMO — 10 OPERACIONES
+[03:35:54] [INFO] ==================================================
+[03:40:01] [INFO] Sistema Software FJ iniciado.
+[03:40:10] [INFO] Sistema Software FJ iniciado.
+[03:40:10] [INFO] ==================================================
+[03:40:10] [INFO] INICIO DEMO — 10 OPERACIONES
+[03:40:10] [INFO] ==================================================
+[03:42:52] [INFO] Sistema Software FJ iniciado.
+[03:42:57] [INFO] Sistema Software FJ iniciado.
+[03:42:57] [INFO] ==================================================
+[03:42:57] [INFO] INICIO DEMO — 10 OPERACIONES
+[03:42:57] [INFO] ==================================================
+[03:44:05] [EVENTO] Reserva creada (pendiente): #1 | Ana García → Sala Ejecutiva A | 10.0h | PENDIENTE | — | 2026-05-09
+[03:44:05] [EVENTO] Reserva #1 CONFIRMADA | Ana García | Sala Ejecutiva A | $500.0
+[03:44:17] [ERROR] Fallo al confirmar reserva #1: Reserva #1 ya está confirmada.
+[03:45:51] [INFO] Sistema Software FJ iniciado.
+[03:45:51] [INFO] ==================================================
+[03:45:51] [INFO] INICIO DEMO — 10 OPERACIONES
+[03:45:51] [INFO] ==================================================
+[03:50:47] [INFO] Sistema Software FJ iniciado.
+[03:50:55] [INFO] Sistema Software FJ iniciado.
+[03:50:55] [INFO] ==================================================
+[03:50:55] [INFO] INICIO DEMO — 10 OPERACIONES
+[03:50:55] [INFO] ==================================================
+[03:51:54] [INFO] Sistema Software FJ iniciado.
+[03:58:27] [INFO] Sistema Software FJ iniciado.
+[03:58:31] [INFO] Sistema Software FJ iniciado.
+[03:58:31] [INFO] ==================================================
+[03:58:31] [INFO] INICIO DEMO — 10 OPERACIONES
+[03:58:31] [INFO] ==================================================
+[03:58:31] [EVENTO] Servicio agregado: [1] Sala Ejecutiva A | $50.0/h | Disponible
+[03:58:31] [EVENTO] Servicio agregado: [2] Laptop HP ProBook | $15.0/h | Disponible
+[03:58:31] [EVENTO] Servicio agregado: [3] Asesoría Tecnológica | $80.0/h | Disponible
+[03:58:31] [EVENTO] Servicio agregado: [4] Sala B (Mantenimiento) | $30.0/h | No disponible
+[03:58:31] [INFO] >>> OP1: Registrar cliente válido
+[03:58:31] [EVENTO] Cliente registrado: [1] Ana García | ana@empresa.com | 3001234567
+[03:58:31] [INFO] >>> OP2: Email inválido
+[03:58:31] [INFO] >>> OP3: Segundo cliente válido
+[03:58:31] [EVENTO] Cliente registrado: [3] Luis Martínez | luis@correo.com | 3107654321
+[03:58:31] [INFO] >>> OP4: Reserva sala con 20% descuento
+[03:58:31] [EVENTO] Reserva creada (pendiente): #1 | Ana García → Sala Ejecutiva A | 3h | PENDIENTE | — | 2026-05-09
+[03:58:31] [EVENTO] Reserva #1 CONFIRMADA | Ana García | Sala Ejecutiva A | $120.0
+[03:58:31] [INFO] >>> OP5: Equipo con IVA 19%
+[03:58:31] [EVENTO] Reserva creada (pendiente): #2 | Luis Martínez → Laptop HP ProBook | 8h | PENDIENTE | — | 2026-05-09
+[03:58:31] [EVENTO] Reserva #2 CONFIRMADA | Luis Martínez | Laptop HP ProBook | $142.8
+[03:58:31] [INFO] >>> OP6: Asesoría experto nivel 3
+[03:58:31] [EVENTO] Reserva creada (pendiente): #3 | Ana García → Asesoría Tecnológica | 2h | PENDIENTE | — | 2026-05-09
+[03:58:32] [EVENTO] Reserva #3 CONFIRMADA | Ana García | Asesoría Tecnológica | $352.0
+[03:58:32] [INFO] >>> OP7: Servicio no disponible
+[03:58:32] [EVENTO] Reserva creada (pendiente): #4 | Luis Martínez → Sala B (Mantenimiento) | 1h | PENDIENTE | — | 2026-05-09
+[03:58:32] [ERROR] Fallo al confirmar reserva #4: Servicio 'Sala B (Mantenimiento)' no está disponible.
+[03:58:32] [INFO] >>> OP8: Cancelar reserva #1
+[03:58:32] [EVENTO] Reserva #1 CANCELADA | Ana García | Sala Ejecutiva A
+[03:58:32] [INFO] >>> OP9: Confirmar reserva cancelada
+[03:58:32] [ERROR] Fallo al confirmar reserva #1: Reserva #1 está cancelada, no se puede confirmar.
+[03:58:32] [INFO] >>> OP10: Reserva con duración negativa
+[03:58:32] [ERROR] Error al crear reserva: Duración debe ser > 0.
+[03:58:32] [INFO] FIN DEMO
+[03:58:32] [INFO] ==================================================
+[03:58:32] [INFO] INICIO DEMO — 10 OPERACIONES
+[03:58:32] [INFO] ==================================================
+[03:58:32] [EVENTO] Servicio agregado: [1] Sala Ejecutiva A | $50.0/h | Disponible
+[03:58:32] [EVENTO] Servicio agregado: [2] Laptop HP ProBook | $15.0/h | Disponible
+[03:58:32] [EVENTO] Servicio agregado: [3] Asesoría Tecnológica | $80.0/h | Disponible
+[03:58:32] [EVENTO] Servicio agregado: [4] Sala B (Mantenimiento) | $30.0/h | No disponible
+[03:58:32] [INFO] >>> OP1: Registrar cliente válido
+[03:58:32] [EVENTO] Cliente registrado: [1] Ana García | ana@empresa.com | 3001234567
+[03:58:32] [INFO] >>> OP2: Email inválido
+[03:58:32] [INFO] >>> OP3: Segundo cliente válido
+[03:58:32] [EVENTO] Cliente registrado: [3] Luis Martínez | luis@correo.com | 3107654321
+[03:58:32] [INFO] >>> OP4: Reserva sala con 20% descuento
+[03:58:32] [EVENTO] Reserva creada (pendiente): #5 | Ana García → Sala Ejecutiva A | 3h | PENDIENTE | — | 2026-05-09
+[03:58:32] [EVENTO] Reserva #5 CONFIRMADA | Ana García | Sala Ejecutiva A | $120.0
+[03:58:32] [INFO] >>> OP5: Equipo con IVA 19%
+[03:58:32] [EVENTO] Reserva creada (pendiente): #6 | Luis Martínez → Laptop HP ProBook | 8h | PENDIENTE | — | 2026-05-09
+[03:58:32] [EVENTO] Reserva #6 CONFIRMADA | Luis Martínez | Laptop HP ProBook | $142.8
+[03:58:32] [INFO] >>> OP6: Asesoría experto nivel 3
+[03:58:32] [EVENTO] Reserva creada (pendiente): #7 | Ana García → Asesoría Tecnológica | 2h | PENDIENTE | — | 2026-05-09
+[03:58:32] [EVENTO] Reserva #7 CONFIRMADA | Ana García | Asesoría Tecnológica | $352.0
+[03:58:32] [INFO] >>> OP7: Servicio no disponible
+[03:58:32] [EVENTO] Reserva creada (pendiente): #8 | Luis Martínez → Sala B (Mantenimiento) | 1h | PENDIENTE | — | 2026-05-09
+[03:58:32] [ERROR] Fallo al confirmar reserva #8: Servicio 'Sala B (Mantenimiento)' no está disponible.
+[03:58:32] [INFO] >>> OP8: Cancelar reserva #1
+[03:58:32] [ERROR] Fallo al cancelar reserva #1: Reserva #1 ya está cancelada.
+[03:58:32] [INFO] >>> OP9: Confirmar reserva cancelada
+[03:58:32] [ERROR] Fallo al confirmar reserva #1: Reserva #1 está cancelada, no se puede confirmar.
+[03:58:32] [INFO] >>> OP10: Reserva con duración negativa
+[03:58:32] [ERROR] Error al crear reserva: Duración debe ser > 0.
+[03:58:33] [INFO] FIN DEMO
+[04:00:07] [INFO] Sistema Software FJ iniciado.
+[04:00:07] [INFO] ==================================================
+[04:00:07] [INFO] INICIO DEMO — 10 OPERACIONES
+[04:00:07] [INFO] ==================================================
+[04:00:07] [EVENTO] Servicio agregado: [1] Sala Ejecutiva A | $50.0/h | Disponible
+[04:00:07] [EVENTO] Servicio agregado: [2] Laptop HP ProBook | $15.0/h | Disponible
+[04:00:07] [EVENTO] Servicio agregado: [3] Asesoría Tecnológica | $80.0/h | Disponible
+[04:00:07] [EVENTO] Servicio agregado: [4] Sala B (Mantenimiento) | $30.0/h | No disponible
+[04:00:07] [INFO] >>> OP1: Registrar cliente válido
+[04:00:07] [EVENTO] Cliente registrado: [1] Ana García | ana@empresa.com | 3001234567
+[04:00:07] [INFO] >>> OP2: Email inválido
+[04:00:07] [INFO] >>> OP3: Segundo cliente válido
+[04:00:07] [EVENTO] Cliente registrado: [3] Luis Martínez | luis@correo.com | 3107654321
+[04:00:07] [INFO] >>> OP4: Reserva sala con 20% descuento
+[04:00:07] [EVENTO] Reserva creada (pendiente): #1 | Ana García → Sala Ejecutiva A | 3h | PENDIENTE | — | 2026-05-09
+[04:00:07] [EVENTO] Reserva #1 CONFIRMADA | Ana García | Sala Ejecutiva A | $120.0
+[04:00:07] [INFO] >>> OP5: Equipo con IVA 19%
+[04:00:07] [EVENTO] Reserva creada (pendiente): #2 | Luis Martínez → Laptop HP ProBook | 8h | PENDIENTE | — | 2026-05-09
+[04:00:07] [EVENTO] Reserva #2 CONFIRMADA | Luis Martínez | Laptop HP ProBook | $142.8
+[04:00:07] [INFO] >>> OP6: Asesoría experto nivel 3
+[04:00:07] [EVENTO] Reserva creada (pendiente): #3 | Ana García → Asesoría Tecnológica | 2h | PENDIENTE | — | 2026-05-09
+[04:00:07] [EVENTO] Reserva #3 CONFIRMADA | Ana García | Asesoría Tecnológica | $352.0
+[04:00:07] [INFO] >>> OP7: Servicio no disponible
+[04:00:07] [EVENTO] Reserva creada (pendiente): #4 | Luis Martínez → Sala B (Mantenimiento) | 1h | PENDIENTE | — | 2026-05-09
+[04:00:07] [ERROR] Fallo al confirmar reserva #4: Servicio 'Sala B (Mantenimiento)' no está disponible.
+[04:00:07] [INFO] >>> OP8: Cancelar reserva #1
+[04:00:07] [EVENTO] Reserva #1 CANCELADA | Ana García | Sala Ejecutiva A
+[04:00:07] [INFO] >>> OP9: Confirmar reserva cancelada
+[04:00:07] [ERROR] Fallo al confirmar reserva #1: Reserva #1 está cancelada, no se puede confirmar.
+[04:00:07] [INFO] >>> OP10: Reserva con duración negativa
+[04:00:07] [ERROR] Error al crear reserva: Duración debe ser > 0.
+[04:00:07] [INFO] FIN DEMO
+[04:00:08] [INFO] ==================================================
+[04:00:08] [INFO] INICIO DEMO — 10 OPERACIONES
+[04:00:08] [INFO] ==================================================
+[04:00:08] [EVENTO] Servicio agregado: [1] Sala Ejecutiva A | $50.0/h | Disponible
+[04:00:08] [EVENTO] Servicio agregado: [2] Laptop HP ProBook | $15.0/h | Disponible
+[04:00:08] [EVENTO] Servicio agregado: [3] Asesoría Tecnológica | $80.0/h | Disponible
+[04:00:08] [EVENTO] Servicio agregado: [4] Sala B (Mantenimiento) | $30.0/h | No disponible
+[04:00:08] [INFO] >>> OP1: Registrar cliente válido
+[04:00:08] [EVENTO] Cliente registrado: [1] Ana García | ana@empresa.com | 3001234567
+[04:00:08] [INFO] >>> OP2: Email inválido
+[04:00:08] [INFO] >>> OP3: Segundo cliente válido
+[04:00:08] [EVENTO] Cliente registrado: [3] Luis Martínez | luis@correo.com | 3107654321
+[04:00:08] [INFO] >>> OP4: Reserva sala con 20% descuento
+[04:00:08] [EVENTO] Reserva creada (pendiente): #5 | Ana García → Sala Ejecutiva A | 3h | PENDIENTE | — | 2026-05-09
+[04:00:08] [EVENTO] Reserva #5 CONFIRMADA | Ana García | Sala Ejecutiva A | $120.0
+[04:00:08] [INFO] >>> OP5: Equipo con IVA 19%
+[04:00:08] [EVENTO] Reserva creada (pendiente): #6 | Luis Martínez → Laptop HP ProBook | 8h | PENDIENTE | — | 2026-05-09
+[04:00:08] [EVENTO] Reserva #6 CONFIRMADA | Luis Martínez | Laptop HP ProBook | $142.8
+[04:00:08] [INFO] >>> OP6: Asesoría experto nivel 3
+[04:00:08] [EVENTO] Reserva creada (pendiente): #7 | Ana García → Asesoría Tecnológica | 2h | PENDIENTE | — | 2026-05-09
+[04:00:08] [EVENTO] Reserva #7 CONFIRMADA | Ana García | Asesoría Tecnológica | $352.0
+[04:00:08] [INFO] >>> OP7: Servicio no disponible
+[04:00:08] [EVENTO] Reserva creada (pendiente): #8 | Luis Martínez → Sala B (Mantenimiento) | 1h | PENDIENTE | — | 2026-05-09
+[04:00:08] [ERROR] Fallo al confirmar reserva #8: Servicio 'Sala B (Mantenimiento)' no está disponible.
+[04:00:08] [INFO] >>> OP8: Cancelar reserva #1
+[04:00:08] [ERROR] Fallo al cancelar reserva #1: Reserva #1 ya está cancelada.
+[04:00:08] [INFO] >>> OP9: Confirmar reserva cancelada
+[04:00:08] [ERROR] Fallo al confirmar reserva #1: Reserva #1 está cancelada, no se puede confirmar.
+[04:00:08] [INFO] >>> OP10: Reserva con duración negativa
+[04:00:08] [ERROR] Error al crear reserva: Duración debe ser > 0.
+[04:00:08] [INFO] FIN DEMO
+[04:02:35] [INFO] Sistema Software FJ iniciado.
+[04:02:47] [INFO] Sistema Software FJ iniciado.
+[04:02:47] [INFO] ==================================================
+[04:02:47] [INFO] INICIO DEMO — 10 OPERACIONES
+[04:02:47] [INFO] ==================================================
+[04:02:47] [EVENTO] Servicio agregado: [1] Sala Ejecutiva A | $50.0/h | Disponible
+[04:02:47] [EVENTO] Servicio agregado: [2] Laptop HP ProBook | $15.0/h | Disponible
+[04:02:47] [EVENTO] Servicio agregado: [3] Asesoría Tecnológica | $80.0/h | Disponible
+[04:02:47] [EVENTO] Servicio agregado: [4] Sala B (Mantenimiento) | $30.0/h | No disponible
+[04:02:47] [INFO] >>> OP1: Registrar cliente válido
+[04:02:47] [EVENTO] Cliente registrado: [1] Ana García | ana@empresa.com | 3001234567
+[04:02:47] [INFO] >>> OP2: Email inválido
+[04:02:47] [INFO] >>> OP3: Segundo cliente válido
+[04:02:47] [EVENTO] Cliente registrado: [3] Luis Martínez | luis@correo.com | 3107654321
+[04:02:47] [INFO] >>> OP4: Reserva sala con 20% descuento
+[04:02:47] [EVENTO] Reserva creada (pendiente): #1 | Ana García → Sala Ejecutiva A | 3h | PENDIENTE | — | 2026-05-09
+[04:02:47] [EVENTO] Reserva #1 CONFIRMADA | Ana García | Sala Ejecutiva A | $120.0
+[04:02:47] [INFO] >>> OP5: Equipo con IVA 19%
+[04:02:47] [EVENTO] Reserva creada (pendiente): #2 | Luis Martínez → Laptop HP ProBook | 8h | PENDIENTE | — | 2026-05-09
+[04:02:47] [EVENTO] Reserva #2 CONFIRMADA | Luis Martínez | Laptop HP ProBook | $142.8
+[04:02:47] [INFO] >>> OP6: Asesoría experto nivel 3
+[04:02:47] [EVENTO] Reserva creada (pendiente): #3 | Ana García → Asesoría Tecnológica | 2h | PENDIENTE | — | 2026-05-09
+[04:02:47] [EVENTO] Reserva #3 CONFIRMADA | Ana García | Asesoría Tecnológica | $352.0
+[04:02:47] [INFO] >>> OP7: Servicio no disponible
+[04:02:47] [EVENTO] Reserva creada (pendiente): #4 | Luis Martínez → Sala B (Mantenimiento) | 1h | PENDIENTE | — | 2026-05-09
+[04:02:47] [ERROR] Fallo al confirmar reserva #4: Servicio 'Sala B (Mantenimiento)' no está disponible.
+[04:02:47] [INFO] >>> OP8: Cancelar reserva #1
+[04:02:47] [EVENTO] Reserva #1 CANCELADA | Ana García | Sala Ejecutiva A
+[04:02:47] [INFO] >>> OP9: Confirmar reserva cancelada
+[04:02:47] [ERROR] Fallo al confirmar reserva #1: Reserva #1 está cancelada, no se puede confirmar.
+[04:02:47] [INFO] >>> OP10: Reserva con duración negativa
+[04:02:47] [ERROR] Error al crear reserva: Duración debe ser > 0.
+[04:02:47] [INFO] FIN DEMO
+[04:02:47] [INFO] ==================================================
+[04:02:47] [INFO] INICIO DEMO — 10 OPERACIONES
+[04:02:47] [INFO] ==================================================
+[04:02:47] [EVENTO] Servicio agregado: [1] Sala Ejecutiva A | $50.0/h | Disponible
+[04:02:47] [EVENTO] Servicio agregado: [2] Laptop HP ProBook | $15.0/h | Disponible
+[04:02:47] [EVENTO] Servicio agregado: [3] Asesoría Tecnológica | $80.0/h | Disponible
+[04:02:47] [EVENTO] Servicio agregado: [4] Sala B (Mantenimiento) | $30.0/h | No disponible
+[04:02:47] [INFO] >>> OP1: Registrar cliente válido
+[04:02:47] [EVENTO] Cliente registrado: [1] Ana García | ana@empresa.com | 3001234567
+[04:02:47] [INFO] >>> OP2: Email inválido
+[04:02:47] [INFO] >>> OP3: Segundo cliente válido
+[04:02:47] [EVENTO] Cliente registrado: [3] Luis Martínez | luis@correo.com | 3107654321
+[04:02:48] [INFO] >>> OP4: Reserva sala con 20% descuento
+[04:02:48] [EVENTO] Reserva creada (pendiente): #5 | Ana García → Sala Ejecutiva A | 3h | PENDIENTE | — | 2026-05-09
+[04:02:48] [EVENTO] Reserva #5 CONFIRMADA | Ana García | Sala Ejecutiva A | $120.0
+[04:02:48] [INFO] >>> OP5: Equipo con IVA 19%
+[04:02:48] [EVENTO] Reserva creada (pendiente): #6 | Luis Martínez → Laptop HP ProBook | 8h | PENDIENTE | — | 2026-05-09
+[04:02:48] [EVENTO] Reserva #6 CONFIRMADA | Luis Martínez | Laptop HP ProBook | $142.8
+[04:02:48] [INFO] >>> OP6: Asesoría experto nivel 3
+[04:02:48] [EVENTO] Reserva creada (pendiente): #7 | Ana García → Asesoría Tecnológica | 2h | PENDIENTE | — | 2026-05-09
+[04:02:48] [EVENTO] Reserva #7 CONFIRMADA | Ana García | Asesoría Tecnológica | $352.0
+[04:02:48] [INFO] >>> OP7: Servicio no disponible
+[04:02:48] [EVENTO] Reserva creada (pendiente): #8 | Luis Martínez → Sala B (Mantenimiento) | 1h | PENDIENTE | — | 2026-05-09
+[04:02:48] [ERROR] Fallo al confirmar reserva #8: Servicio 'Sala B (Mantenimiento)' no está disponible.
+[04:02:48] [INFO] >>> OP8: Cancelar reserva #1
+[04:02:48] [ERROR] Fallo al cancelar reserva #1: Reserva #1 ya está cancelada.
+[04:02:48] [INFO] >>> OP9: Confirmar reserva cancelada
+[04:02:48] [ERROR] Fallo al confirmar reserva #1: Reserva #1 está cancelada, no se puede confirmar.
+[04:02:48] [INFO] >>> OP10: Reserva con duración negativa
+[04:02:48] [ERROR] Error al crear reserva: Duración debe ser > 0.
+[04:02:48] [INFO] FIN DEMO
+[10:07:28] [INFO] Sistema Software FJ iniciado.
+[10:08:09] [EVENTO] Cliente registrado: [1111] Andres Martinez | andrespabon11@gmail.com | 3228975307
+[10:23:28] [INFO] Sistema Software FJ iniciado.
+[10:23:28] [INFO] ==================================================
+[10:23:28] [INFO] INICIO DEMO — 10 OPERACIONES
+[10:23:28] [INFO] ==================================================
+[10:23:28] [EVENTO] Servicio agregado: [1] Sala Ejecutiva A | $50.0/h | Disponible
+[10:23:28] [EVENTO] Servicio agregado: [2] Laptop HP ProBook | $15.0/h | Disponible
+[10:23:28] [EVENTO] Servicio agregado: [3] Asesoría Tecnológica | $80.0/h | Disponible
+[10:23:28] [EVENTO] Servicio agregado: [4] Sala B (Mantenimiento) | $30.0/h | No disponible
+[10:23:28] [INFO] >>> OP1: Registrar cliente válido
+[10:23:28] [EVENTO] Cliente registrado: [1] Ana García | ana@empresa.com | 3001234567
+[10:23:28] [INFO] >>> OP2: Email inválido
+[10:23:28] [INFO] >>> OP3: Segundo cliente válido
+[10:23:28] [EVENTO] Cliente registrado: [3] Luis Martínez | luis@correo.com | 3107654321
+[10:23:28] [INFO] >>> OP4: Reserva sala con 20% descuento
+[10:23:28] [EVENTO] Reserva creada (pendiente): #1 | Ana García → Sala Ejecutiva A | 3h | PENDIENTE | — | 2026-05-09
+[10:23:28] [EVENTO] Reserva #1 CONFIRMADA | Ana García | Sala Ejecutiva A | $120.0
+[10:23:28] [INFO] >>> OP5: Equipo con IVA 19%
+[10:23:28] [EVENTO] Reserva creada (pendiente): #2 | Luis Martínez → Laptop HP ProBook | 8h | PENDIENTE | — | 2026-05-09
+[10:23:28] [EVENTO] Reserva #2 CONFIRMADA | Luis Martínez | Laptop HP ProBook | $142.8
+[10:23:28] [INFO] >>> OP6: Asesoría experto nivel 3
+[10:23:28] [EVENTO] Reserva creada (pendiente): #3 | Ana García → Asesoría Tecnológica | 2h | PENDIENTE | — | 2026-05-09
+[10:23:28] [EVENTO] Reserva #3 CONFIRMADA | Ana García | Asesoría Tecnológica | $352.0
+[10:23:28] [INFO] >>> OP7: Servicio no disponible
+[10:23:28] [EVENTO] Reserva creada (pendiente): #4 | Luis Martínez → Sala B (Mantenimiento) | 1h | PENDIENTE | — | 2026-05-09
+[10:23:28] [ERROR] Fallo al confirmar reserva #4: Servicio 'Sala B (Mantenimiento)' no está disponible.
+[10:23:28] [INFO] >>> OP8: Cancelar reserva #1
+[10:23:28] [EVENTO] Reserva #1 CANCELADA | Ana García | Sala Ejecutiva A
+[10:23:28] [INFO] >>> OP9: Confirmar reserva cancelada
+[10:23:28] [ERROR] Fallo al confirmar reserva #1: Reserva #1 está cancelada, no se puede confirmar.
+[10:23:28] [INFO] >>> OP10: Reserva con duración negativa
+[10:23:29] [ERROR] Error al crear reserva: Duración debe ser > 0.
+[10:23:29] [INFO] FIN DEMO
+[10:23:29] [INFO] ==================================================
+[10:23:29] [INFO] INICIO DEMO — 10 OPERACIONES
+[10:23:29] [INFO] ==================================================
+[10:23:29] [EVENTO] Servicio agregado: [1] Sala Ejecutiva A | $50.0/h | Disponible
+[10:23:29] [EVENTO] Servicio agregado: [2] Laptop HP ProBook | $15.0/h | Disponible
+[10:23:29] [EVENTO] Servicio agregado: [3] Asesoría Tecnológica | $80.0/h | Disponible
+[10:23:29] [EVENTO] Servicio agregado: [4] Sala B (Mantenimiento) | $30.0/h | No disponible
+[10:23:29] [INFO] >>> OP1: Registrar cliente válido
+[10:23:29] [EVENTO] Cliente registrado: [1] Ana García | ana@empresa.com | 3001234567
+[10:23:29] [INFO] >>> OP2: Email inválido
+[10:23:29] [INFO] >>> OP3: Segundo cliente válido
+[10:23:29] [EVENTO] Cliente registrado: [3] Luis Martínez | luis@correo.com | 3107654321
+[10:23:29] [INFO] >>> OP4: Reserva sala con 20% descuento
+[10:23:29] [EVENTO] Reserva creada (pendiente): #5 | Ana García → Sala Ejecutiva A | 3h | PENDIENTE | — | 2026-05-09
+[10:23:29] [EVENTO] Reserva #5 CONFIRMADA | Ana García | Sala Ejecutiva A | $120.0
+[10:23:29] [INFO] >>> OP5: Equipo con IVA 19%
+[10:23:29] [EVENTO] Reserva creada (pendiente): #6 | Luis Martínez → Laptop HP ProBook | 8h | PENDIENTE | — | 2026-05-09
+[10:23:29] [EVENTO] Reserva #6 CONFIRMADA | Luis Martínez | Laptop HP ProBook | $142.8
+[10:23:29] [INFO] >>> OP6: Asesoría experto nivel 3
+[10:23:29] [EVENTO] Reserva creada (pendiente): #7 | Ana García → Asesoría Tecnológica | 2h | PENDIENTE | — | 2026-05-09
+[10:23:29] [EVENTO] Reserva #7 CONFIRMADA | Ana García | Asesoría Tecnológica | $352.0
+[10:23:29] [INFO] >>> OP7: Servicio no disponible
+[10:23:29] [EVENTO] Reserva creada (pendiente): #8 | Luis Martínez → Sala B (Mantenimiento) | 1h | PENDIENTE | — | 2026-05-09
+[10:23:29] [ERROR] Fallo al confirmar reserva #8: Servicio 'Sala B (Mantenimiento)' no está disponible.
+[10:23:29] [INFO] >>> OP8: Cancelar reserva #1
+[10:23:29] [ERROR] Fallo al cancelar reserva #1: Reserva #1 ya está cancelada.
+[10:23:29] [INFO] >>> OP9: Confirmar reserva cancelada
+[10:23:29] [ERROR] Fallo al confirmar reserva #1: Reserva #1 está cancelada, no se puede confirmar.
+[10:23:29] [INFO] >>> OP10: Reserva con duración negativa
+[10:23:29] [ERROR] Error al crear reserva: Duración debe ser > 0.
+[10:23:29] [INFO] FIN DEMO
+[10:23:56] [ERROR] Fallo al confirmar reserva #1: Reserva #1 está cancelada, no se puede confirmar.
+[10:24:02] [ERROR] Fallo al confirmar reserva #2: Reserva #2 ya está confirmada.
+[10:24:06] [ERROR] Fallo al confirmar reserva #4: Servicio 'Sala B (Mantenimiento)' no está disponible.
+[10:24:08] [EVENTO] Reserva #4 CANCELADA | Luis Martínez | Sala B (Mantenimiento)
+[10:24:14] [EVENTO] Reserva #8 CANCELADA | Luis Martínez | Sala B (Mantenimiento)
+[10:26:15] [INFO] Sistema Software FJ iniciado.
+[10:26:29] [INFO] Sistema Software FJ iniciado.
+[10:26:29] [INFO] ==================================================
+[10:26:29] [INFO] INICIO DEMO — 10 OPERACIONES
+[10:26:29] [INFO] ==================================================
+[10:26:29] [EVENTO] Servicio agregado: [1] Sala Ejecutiva A | $50.0/h | Disponible
+[10:26:29] [EVENTO] Servicio agregado: [2] Laptop HP ProBook | $15.0/h | Disponible
+[10:26:29] [EVENTO] Servicio agregado: [3] Asesoría Tecnológica | $80.0/h | Disponible
+[10:26:29] [EVENTO] Servicio agregado: [4] Sala B (Mantenimiento) | $30.0/h | No disponible
+[10:26:29] [INFO] >>> OP1: Registrar cliente válido
+[10:26:29] [EVENTO] Cliente registrado: [1] Ana García | ana@empresa.com | 3001234567
+[10:26:29] [INFO] >>> OP2: Email inválido
+[10:26:29] [INFO] >>> OP3: Segundo cliente válido
+[10:26:29] [EVENTO] Cliente registrado: [3] Luis Martínez | luis@correo.com | 3107654321
+[10:26:29] [INFO] >>> OP4: Reserva sala con 20% descuento
+[10:26:29] [EVENTO] Reserva creada (pendiente): #1 | Ana García → Sala Ejecutiva A | 3h | PENDIENTE | — | 2026-05-09
+[10:26:29] [EVENTO] Reserva #1 CONFIRMADA | Ana García | Sala Ejecutiva A | $120.0
+[10:26:29] [INFO] >>> OP5: Equipo con IVA 19%
+[10:26:29] [EVENTO] Reserva creada (pendiente): #2 | Luis Martínez → Laptop HP ProBook | 8h | PENDIENTE | — | 2026-05-09
+[10:26:29] [EVENTO] Reserva #2 CONFIRMADA | Luis Martínez | Laptop HP ProBook | $142.8
+[10:26:29] [INFO] >>> OP6: Asesoría experto nivel 3
+[10:26:29] [EVENTO] Reserva creada (pendiente): #3 | Ana García → Asesoría Tecnológica | 2h | PENDIENTE | — | 2026-05-09
+[10:26:29] [EVENTO] Reserva #3 CONFIRMADA | Ana García | Asesoría Tecnológica | $352.0
+[10:26:29] [INFO] >>> OP7: Servicio no disponible
+[10:26:29] [EVENTO] Reserva creada (pendiente): #4 | Luis Martínez → Sala B (Mantenimiento) | 1h | PENDIENTE | — | 2026-05-09
+[10:26:29] [ERROR] Fallo al confirmar reserva #4: Servicio 'Sala B (Mantenimiento)' no está disponible.
+[10:26:29] [INFO] >>> OP8: Cancelar reserva #1
+[10:26:29] [EVENTO] Reserva #1 CANCELADA | Ana García | Sala Ejecutiva A
+[10:26:29] [INFO] >>> OP9: Confirmar reserva cancelada
+[10:26:29] [ERROR] Fallo al confirmar reserva #1: Reserva #1 está cancelada, no se puede confirmar.
+[10:26:29] [INFO] >>> OP10: Reserva con duración negativa
+[10:26:29] [ERROR] Error al crear reserva: Duración debe ser > 0.
+[10:26:29] [INFO] FIN DEMO
+[10:26:29] [INFO] ==================================================
+[10:26:29] [INFO] INICIO DEMO — 10 OPERACIONES
+[10:26:29] [INFO] ==================================================
+[10:26:29] [EVENTO] Servicio agregado: [1] Sala Ejecutiva A | $50.0/h | Disponible
+[10:26:29] [EVENTO] Servicio agregado: [2] Laptop HP ProBook | $15.0/h | Disponible
+[10:26:29] [EVENTO] Servicio agregado: [3] Asesoría Tecnológica | $80.0/h | Disponible
+[10:26:29] [EVENTO] Servicio agregado: [4] Sala B (Mantenimiento) | $30.0/h | No disponible
+[10:26:29] [INFO] >>> OP1: Registrar cliente válido
+[10:26:29] [EVENTO] Cliente registrado: [1] Ana García | ana@empresa.com | 3001234567
+[10:26:29] [INFO] >>> OP2: Email inválido
+[10:26:29] [INFO] >>> OP3: Segundo cliente válido
+[10:26:29] [EVENTO] Cliente registrado: [3] Luis Martínez | luis@correo.com | 3107654321
+[10:26:29] [INFO] >>> OP4: Reserva sala con 20% descuento
+[10:26:29] [EVENTO] Reserva creada (pendiente): #5 | Ana García → Sala Ejecutiva A | 3h | PENDIENTE | — | 2026-05-09
+[10:26:29] [EVENTO] Reserva #5 CONFIRMADA | Ana García | Sala Ejecutiva A | $120.0
+[10:26:29] [INFO] >>> OP5: Equipo con IVA 19%
+[10:26:29] [EVENTO] Reserva creada (pendiente): #6 | Luis Martínez → Laptop HP ProBook | 8h | PENDIENTE | — | 2026-05-09
+[10:26:29] [EVENTO] Reserva #6 CONFIRMADA | Luis Martínez | Laptop HP ProBook | $142.8
+[10:26:29] [INFO] >>> OP6: Asesoría experto nivel 3
+[10:26:29] [EVENTO] Reserva creada (pendiente): #7 | Ana García → Asesoría Tecnológica | 2h | PENDIENTE | — | 2026-05-09
+[10:26:29] [EVENTO] Reserva #7 CONFIRMADA | Ana García | Asesoría Tecnológica | $352.0
+[10:26:29] [INFO] >>> OP7: Servicio no disponible
+[10:26:29] [EVENTO] Reserva creada (pendiente): #8 | Luis Martínez → Sala B (Mantenimiento) | 1h | PENDIENTE | — | 2026-05-09
+[10:26:29] [ERROR] Fallo al confirmar reserva #8: Servicio 'Sala B (Mantenimiento)' no está disponible.
+[10:26:29] [INFO] >>> OP8: Cancelar reserva #1
+[10:26:30] [ERROR] Fallo al cancelar reserva #1: Reserva #1 ya está cancelada.
+[10:26:30] [INFO] >>> OP9: Confirmar reserva cancelada
+[10:26:30] [ERROR] Fallo al confirmar reserva #1: Reserva #1 está cancelada, no se puede confirmar.
+[10:26:30] [INFO] >>> OP10: Reserva con duración negativa
+[10:26:30] [ERROR] Error al crear reserva: Duración debe ser > 0.
+[10:26:30] [INFO] FIN DEMO
+[10:26:46] [ERROR] Fallo al confirmar reserva #4: Servicio 'Sala B (Mantenimiento)' no está disponible.
+[10:26:49] [ERROR] Fallo al confirmar reserva #8: Servicio 'Sala B (Mantenimiento)' no está disponible.
+[10:27:04] [INFO] Sistema Software FJ iniciado.
+[10:27:04] [INFO] ==================================================
+[10:27:04] [INFO] INICIO DEMO — 10 OPERACIONES
+[10:27:04] [INFO] ==================================================
+[10:27:04] [EVENTO] Servicio agregado: [1] Sala Ejecutiva A | $50.0/h | Disponible
+[10:27:04] [EVENTO] Servicio agregado: [2] Laptop HP ProBook | $15.0/h | Disponible
+[10:27:04] [EVENTO] Servicio agregado: [3] Asesoría Tecnológica | $80.0/h | Disponible
+[10:27:04] [EVENTO] Servicio agregado: [4] Sala B (Mantenimiento) | $30.0/h | No disponible
+[10:27:04] [INFO] >>> OP1: Registrar cliente válido
+[10:27:04] [EVENTO] Cliente registrado: [1] Ana García | ana@empresa.com | 3001234567
+[10:27:04] [INFO] >>> OP2: Email inválido
+[10:27:04] [INFO] >>> OP3: Segundo cliente válido
+[10:27:04] [EVENTO] Cliente registrado: [3] Luis Martínez | luis@correo.com | 3107654321
+[10:27:04] [INFO] >>> OP4: Reserva sala con 20% descuento
+[10:27:04] [EVENTO] Reserva creada (pendiente): #1 | Ana García → Sala Ejecutiva A | 3h | PENDIENTE | — | 2026-05-09
+[10:27:04] [EVENTO] Reserva #1 CONFIRMADA | Ana García | Sala Ejecutiva A | $120.0
+[10:27:04] [INFO] >>> OP5: Equipo con IVA 19%
+[10:27:04] [EVENTO] Reserva creada (pendiente): #2 | Luis Martínez → Laptop HP ProBook | 8h | PENDIENTE | — | 2026-05-09
+[10:27:04] [EVENTO] Reserva #2 CONFIRMADA | Luis Martínez | Laptop HP ProBook | $142.8
+[10:27:04] [INFO] >>> OP6: Asesoría experto nivel 3
+[10:27:04] [EVENTO] Reserva creada (pendiente): #3 | Ana García → Asesoría Tecnológica | 2h | PENDIENTE | — | 2026-05-09
+[10:27:04] [EVENTO] Reserva #3 CONFIRMADA | Ana García | Asesoría Tecnológica | $352.0
+[10:27:04] [INFO] >>> OP7: Servicio no disponible
+[10:27:04] [EVENTO] Reserva creada (pendiente): #4 | Luis Martínez → Sala B (Mantenimiento) | 1h | PENDIENTE | — | 2026-05-09
+[10:27:04] [ERROR] Fallo al confirmar reserva #4: Servicio 'Sala B (Mantenimiento)' no está disponible.
+[10:27:04] [INFO] >>> OP8: Cancelar reserva #1
+[10:27:04] [EVENTO] Reserva #1 CANCELADA | Ana García | Sala Ejecutiva A
+[10:27:04] [INFO] >>> OP9: Confirmar reserva cancelada
+[10:27:04] [ERROR] Fallo al confirmar reserva #1: Reserva #1 está cancelada, no se puede confirmar.
+[10:27:04] [INFO] >>> OP10: Reserva con duración negativa
+[10:27:04] [ERROR] Error al crear reserva: Duración debe ser > 0.
+[10:27:04] [INFO] FIN DEMO
+[10:27:04] [INFO] ==================================================
+[10:27:04] [INFO] INICIO DEMO — 10 OPERACIONES
+[10:27:04] [INFO] ==================================================
+[10:27:04] [EVENTO] Servicio agregado: [1] Sala Ejecutiva A | $50.0/h | Disponible
+[10:27:04] [EVENTO] Servicio agregado: [2] Laptop HP ProBook | $15.0/h | Disponible
+[10:27:04] [EVENTO] Servicio agregado: [3] Asesoría Tecnológica | $80.0/h | Disponible
+[10:27:04] [EVENTO] Servicio agregado: [4] Sala B (Mantenimiento) | $30.0/h | No disponible
+[10:27:04] [INFO] >>> OP1: Registrar cliente válido
+[10:27:04] [EVENTO] Cliente registrado: [1] Ana García | ana@empresa.com | 3001234567
+[10:27:04] [INFO] >>> OP2: Email inválido
+[10:27:04] [INFO] >>> OP3: Segundo cliente válido
+[10:27:04] [EVENTO] Cliente registrado: [3] Luis Martínez | luis@correo.com | 3107654321
+[10:27:04] [INFO] >>> OP4: Reserva sala con 20% descuento
+[10:27:04] [EVENTO] Reserva creada (pendiente): #5 | Ana García → Sala Ejecutiva A | 3h | PENDIENTE | — | 2026-05-09
+[10:27:04] [EVENTO] Reserva #5 CONFIRMADA | Ana García | Sala Ejecutiva A | $120.0
+[10:27:04] [INFO] >>> OP5: Equipo con IVA 19%
+[10:27:04] [EVENTO] Reserva creada (pendiente): #6 | Luis Martínez → Laptop HP ProBook | 8h | PENDIENTE | — | 2026-05-09
+[10:27:04] [EVENTO] Reserva #6 CONFIRMADA | Luis Martínez | Laptop HP ProBook | $142.8
+[10:27:04] [INFO] >>> OP6: Asesoría experto nivel 3
+[10:27:05] [EVENTO] Reserva creada (pendiente): #7 | Ana García → Asesoría Tecnológica | 2h | PENDIENTE | — | 2026-05-09
+[10:27:05] [EVENTO] Reserva #7 CONFIRMADA | Ana García | Asesoría Tecnológica | $352.0
+[10:27:05] [INFO] >>> OP7: Servicio no disponible
+[10:27:05] [EVENTO] Reserva creada (pendiente): #8 | Luis Martínez → Sala B (Mantenimiento) | 1h | PENDIENTE | — | 2026-05-09
+[10:27:05] [ERROR] Fallo al confirmar reserva #8: Servicio 'Sala B (Mantenimiento)' no está disponible.
+[10:27:05] [INFO] >>> OP8: Cancelar reserva #1
+[10:27:05] [ERROR] Fallo al cancelar reserva #1: Reserva #1 ya está cancelada.
+[10:27:05] [INFO] >>> OP9: Confirmar reserva cancelada
+[10:27:05] [ERROR] Fallo al confirmar reserva #1: Reserva #1 está cancelada, no se puede confirmar.
+[10:27:05] [INFO] >>> OP10: Reserva con duración negativa
+[10:27:05] [ERROR] Error al crear reserva: Duración debe ser > 0.
+[10:27:05] [INFO] FIN DEMO
